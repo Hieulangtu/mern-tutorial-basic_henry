@@ -17,4 +17,6 @@ const UserSchema = new Schema({
 	}
 })
 
+//users : sẽ là tên của bảng/collection. 
+//Đối tượng tham chiếu bảng là UserSchema vừa khai báo (UserSchema là scheme truyền vào)
 module.exports = mongoose.model('users', UserSchema)

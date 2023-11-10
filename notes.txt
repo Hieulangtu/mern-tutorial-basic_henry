@@ -1,0 +1,3 @@
+cors : dùng để frontend nói chuyện vs backend
+nodemon: để phát triển trong môi truowgnf lập trình, tiện, save code là nó cập nhật luôn 
+trên server
