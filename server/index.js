@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 //cors: frontend và backend nói chuyện
 const cors = require('cors')
 
+// ./ là cùng hạng
+//import các routes
 const authRouter = require('./routes/auth')
 const postRouter = require('./routes/post')
 
@@ -38,7 +40,7 @@ connectDB()
 // Dòng này tạo một instance(đối tượng) của Express và lưu trữ nó trong biến app. 
 // Bạn sẽ sử dụng app để cấu hình và định nghĩa các route cho ứng dụng.
 const app = express()
-app.use(express.json())
+app.use(express.json()) //để nhận data vs header application/json
 app.use(cors())
 
 app.use('/api/auth', authRouter)

@@ -1,3 +1,30 @@
 cors : dùng để frontend nói chuyện vs backend
 nodemon: để phát triển trong môi truowgnf lập trình, tiện, save code là nó cập nhật luôn 
 trên server
+
+JSON Web Token (JWT) là gì ? 
+https://viblo.asia/p/cung-minh-tim-hieu-ve-json-web-token-jwt-Rk74axvAVeO
+
+1. Json Web Token (JWT) là gì?
+JWT là một tiêu chuẩn mở RFC 7519, được sử dụng như một người đại diện để 
+trao đổi thông tin một cách an toàn giữa server và client thông qua một 
+chuỗi JSON. Thông tin giao dịch thông qua JWT sẽ được bảo mật và có độ 
+tin tưởng cao nhờ vào chữ ký điện tử để xác minh tính toàn vẹn sở hữu. 
+Chữ ký điện tử sử dụng mã khóa công khai/ riêng tư sử dụng RSA, ECDSA với
+thuật toán HMAC.
+
+Để tiện hơn cho việc hiểu các khái niệm session , token , cookie các thứ thì mk
+thấy có vài cái link này : 
+ +https://anonystick.com/blog-developer/4-co-che-dang-nhap-bai-viet-nay-la-du-cho-dan-lap-trinh-phan-1-2020091071827696
+ +https://anonystick.com/blog-developer/4-co-che-dang-nhap-bai-viet-nay-la-du-cho-dan-lap-trinh-phan-1-2020091071827696#t-0
+ +https://anonystick.com/blog-developer/co-che-dang-nhap-voi-token-hon-cookie-va-session-nhu-the-nao-phan-2-2020091142676664
+những link trên ở trang web khá hay có những bài thao khảo khác. Ngoài ra:
+ +https://viblo.asia/p/su-khac-biet-giua-xac-thuc-dua-tren-session-va-token-1VgZvQ19KAw
+ +https://topdev.vn/blog/session-la-gi-cookie-la-gi/
+ +https://viblo.asia/p/json-web-token-hay-session-cookies-dau-moi-la-chan-ai-Qbq5Q0oJlD8
+
+ta phải dùng chúng vì nếu ko có chúng, trong 2 lần gửi request lên server thì server
+ko thể biết 2 lần đó có cùng là 1 người hay không. thế là xác thực lại
+-> rất mất công 
+
+Sang frontend CB
