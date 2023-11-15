@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const verifyToken = require('../middleware/auth')
+const verifyToken = require('../middleware/auth') //import middleware
 
 const Post = require('../models/Post')
 
@@ -9,6 +9,8 @@ const Post = require('../models/Post')
 // @access Private
 router.get('/', verifyToken, async (req, res) => {
 	try {
+		//Phương thức populate trong Mongoose giúp lấy dữ liệu từ một bảng (collection) khác 
+		//để điền vào TRƯỜNG của document hiện tại dựa trên mối quan hệ giữa chúng
 		const posts = await Post.find({ user: req.userId }).populate('user', [
 			'username'
 		])
@@ -22,7 +24,7 @@ router.get('/', verifyToken, async (req, res) => {
 // @route POST api/posts
 // @desc Create post
 // @access Private
-router.post('/', verifyToken, async (req, res) => {
+router.post('/', verifyToken, async (req, res) => { //check verifytoken rồi ms đến hàm sau
 	const { title, description, url, status } = req.body
 
 	// Simple validation
@@ -63,21 +65,26 @@ router.put('/:id', verifyToken, async (req, res) => {
 
 	try {
 		let updatedPost = {
-			title,
-			description: description || '',
+			title, //viết như này trong js có nghĩa là title : title
+			description: description || '', //tránh trường hợp giá trị undefined
 			url: (url.startsWith('https://') ? url : `https://${url}`) || '',
 			status: status || 'TO LEARN'
 		}
 
+        //điều kiện update: post tồn tại trong db và người dùng có quyền
 		const postUpdateCondition = { _id: req.params.id, user: req.userId }
+		                        //req.params.id: '/:id'
+								//trường của mongoDB là : _id chứ KHÔNG phải là id
+								//đây là object để đối chiếu và db tìm giá trị như thế để kiểm tra
 
 		updatedPost = await Post.findOneAndUpdate(
-			postUpdateCondition,
-			updatedPost,
-			{ new: true }
+			//hàm này thực thi tìm post có điều kiện như trong object và update
+			postUpdateCondition, //điều kiện
+			updatedPost,//giá trị update
+			{ new: true } //trả về bản ghi sau khi cập nhật, ko có là trả về cái cũ :))
 		)
 
-		// User not authorised to update post or post not found
+		// User not authorised to update post or post not found-nếu update fail
 		if (!updatedPost)
 			return res.status(401).json({
 				success: false,

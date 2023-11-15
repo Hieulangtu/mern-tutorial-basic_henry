@@ -27,4 +27,4 @@ ta phải dùng chúng vì nếu ko có chúng, trong 2 lần gửi request lên
 ko thể biết 2 lần đó có cùng là 1 người hay không. thế là xác thực lại
 -> rất mất công 
 
-Sang frontend CB
+Sang frontend 
