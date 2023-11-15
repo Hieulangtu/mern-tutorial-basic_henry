@@ -28,3 +28,9 @@ ko thể biết 2 lần đó có cùng là 1 người hay không. thế là xác
 -> rất mất công 
 
 Sang frontend 
+touch .gitignore : tạo ra file ignore
+->không còn track những thứ được nêu trong file
+
+npx create-react-app client : cài react app vào folder mới client
+xong rồi : cd client
+npm start
