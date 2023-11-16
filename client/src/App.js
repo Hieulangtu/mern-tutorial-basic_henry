@@ -14,15 +14,18 @@ function App() {
 			<PostContextProvider>
 				<Router>
 					<Switch>
-						<Route exact path='/' component={Landing} />
+					{/* nhảy ra login  */}
+						<Route exact path='/' component={Landing} /> 
 						<Route
 							exact
+							// Thuộc tính exact đảm bảo rằng route chỉ kích hoạt nếu địa chỉ URL khớp chính xác.
 							path='/login'
 							render={props => <Auth {...props} authRoute='login' />}
 						/>
 						<Route
 							exact
 							path='/register'
+							//Phương thức render được sử dụng thay vì component để có thể truyền các props vào component.
 							render={props => <Auth {...props} authRoute='register' />}
 						/>
 						<ProtectedRoute exact path='/dashboard' component={Dashboard} />

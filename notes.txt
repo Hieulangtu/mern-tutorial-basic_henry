@@ -1,6 +1,22 @@
+step 1 theo Henry: git init
+rồi mkdir server : để tạo folder server
+sau đó : cd server
+npm init
+từ đây bắt đầu tạo backend, cài các thứ
+ npm i express jsonwebtoken mongoose dotenv argon2 cors
+
 cors : dùng để frontend nói chuyện vs backend
+
+npm i --save-dev nodemon
 nodemon: để phát triển trong môi truowgnf lập trình, tiện, save code là nó cập nhật luôn 
 trên server
+
+rồi trong package.json :
+	"scripts": {
+		"start": "node index",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server": "nodemon index"
+	},
 
 JSON Web Token (JWT) là gì ? 
 https://viblo.asia/p/cung-minh-tim-hieu-ve-json-web-token-jwt-Rk74axvAVeO
@@ -34,3 +50,16 @@ touch .gitignore : tạo ra file ignore
 npx create-react-app client : cài react app vào folder mới client
 xong rồi : cd client
 npm start
+đợi một tí
+cd client
+npm i react-bootstrap bootstrap axios react-router-dom
+->axios để nói chuyện vs backend, react-router-dom để SPA
+React Router là một thư viện chuẩn để định tuyến trong React. Nó cho phép điều hướng 
+giữa các chế độ xem của các thành phần khác nhau trong Ứng dụng React, cho phép thay
+đổi URL của trình duyệt và giữ giao diện người dùng đồng bộ với URL
+
+
+thứ tự tạo component:
+layout/landing
+views/auth
+auth/loginForm
