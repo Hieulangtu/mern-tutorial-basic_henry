@@ -1,3 +1,6 @@
+//login forrm : trả về component để login tài khoản
+//là một form login
+
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'

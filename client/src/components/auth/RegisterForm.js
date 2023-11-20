@@ -1,3 +1,6 @@
+//Register form: trả về một component để đăng ký tài khoản
+// là một <Form>
+
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router-dom'

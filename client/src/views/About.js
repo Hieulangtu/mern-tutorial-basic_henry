@@ -1,3 +1,5 @@
+//một Component trả về button link đến một trang web
+
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

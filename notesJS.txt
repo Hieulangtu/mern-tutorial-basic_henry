@@ -1,0 +1,75 @@
+
+Trong JavaScript, một hàm mà không có lệnh return sẽ trả về giá trị undefined mặc định. 
+Trong trường hợp function X(){console.log("helo")}, hàm X chỉ chứa một lệnh console.log("helo")
+mà không có lệnh return, nên khi bạn gọi hàm X(), nó sẽ thực hiện lệnh console.log("helo") 
+và trả về undefined.
+
+đối với kỹ thuật "short-circuiting {X && Y && Z && <LoginForm />} dùng &&, ||
+-> chương trình chạy các function bên trong và chỉ quan tâm kết quả trẻ về là falsy hay truthy
+
+
+const handleRowMoveDown = (event) => {
+  event.preventDefault();
+  // Các xử lý khác có thể được thêm vào đây
+  console.log("Row move down");
+};
+
+// Sử dụng trong JSX
+<button onClick={handleRowMoveDown}>Move Down</button>
+
+Trong đoạn mã trên, khi bạn click vào nút "Move Down," hàm handleRowMoveDown sẽ được gọi, 
+và event.preventDefault(); sẽ ngăn chặn hành vi mặc định của sự kiện click trên nút này, như là việc gửi một yêu 
+cầu form hoặc điều hướng tới một URL mới.
+
+Nếu bạn chỉ cần ngăn chặn mặc định của sự kiện click và không cần truyền thêm thông 
+tin khác, thì onClick={handleRowMoveDown} là đủ. Nếu bạn cần truyền thêm thông tin 
+hoặc xử lý logic phức tạp hơn, bạn có thể sử dụng cú 
+pháp onClick={() => handleRowMoveDown(data.id)}.
+
+Trong JSX, bạn cần sử dụng cú pháp () => để tạo một hàm nặc danh và gọi hàm xử lý sự kiện bên trong.
+onClick={() => handleRowMoveDown(data.id)}
+
+Ví dụ lấy từ love table của mk. nói chung là nếu hàm callback có nhiều tham số thì các sự kiện
+cần hàm nặc danh. còn nếu chỉ có event/ ko có gì thì gọi trực tiếp như trên luôn 
+ -> vì: React sẽ tự động truyền đối tượng sự kiện (event object) cho hàm handleRowMoveDown khi nút được click
+
+ xét code:
+  function Profile(props) {
+  return (
+    <div className="card">
+      <Avatar {...props} shape={5} />
+    </div>
+  );
+}
+
+->bao nhiêu props của component Profile sẽ đc truyền hết cho Avatar nếu trùng trên
+->Bằng cách này, giá trị của shape trong props của Avatar sẽ là 5. 
+Cách này sẽ ghi đè giá trị của shape nếu nó đã tồn tại trong props của Profile
+
+let cho phép chúng ta cập nhật giá trị của biến chứ không cho phép chúng ta tái khái báo lại biến đó.
+ let greeting = "say Hi";
+    let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
+
+https://viblo.asia/p/phan-biet-kieu-bien-var-let-va-const-trong-javascript-ORNZqaOnZ0n
+->var, const, let
+
+trong React khong có thẻ <a link=> được. nó phải dùng component để routing riêng : Link to
+<a> (thẻ mặc định của HTML để tạo ra liên kết), thì trong ngữ cảnh của React Router, 
+sử dụng <Link> hoặc <NavLink> thường được ưu tiên vì nó tích hợp với hệ thống điều hướng 
+của React Router mà không làm tải lại trang. -> a dùng khi sang hẳn một trang chỗ khác
+
+bootswach : theme for bootstrap ->biến thể của bootstrap ở vũ trụ khác
+
+https://viblo.asia/p/su-dung-usereducer-hook-trong-react-L4x5x19wKBM
+->link về usereducer. nhìn chung thì đây là nâng cấp của useState
+
+React hook: 
+useContext: kho lưu trạng thái -> tất cả các component đều có thể truy cập để thay đổi state của dâta
+->ko cần khai báo state ở các component riêng lẻ nx, nếu quá nhiều state thì vỡ mồm
+link học : https://www.youtube.com/watch?v=lsVT0s27Ibs&list=PLKzNGvIJtUDbPAASXcNzwWsVbIxmmDgGn&index=3&ab_channel=HenryWebDev
+
+Một component React sử dụng các props và/hoặc state để tính toán kết quả đầu ra. Nếu component thực hiện các tính toán không nhắm mục đích là giá trị đầu ra, thì các tính toán này được đặt tên là side effect.
+
+Ví dụ về các side effect là lấy data, thao tác DOM trực tiếp, sử dụng các hàm hẹn giờ như setTimeout (), v.v.
+
+useContext

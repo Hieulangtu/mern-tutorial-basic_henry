@@ -14,7 +14,7 @@ function App() {
 			<PostContextProvider>
 				<Router>
 					<Switch>
-					{/* nhảy ra login  */}
+					     {/* nhảy ra login  */}
 						<Route exact path='/' component={Landing} /> 
 						<Route
 							exact

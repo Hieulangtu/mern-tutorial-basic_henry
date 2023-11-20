@@ -63,3 +63,11 @@ thứ tự tạo component:
 layout/landing
 views/auth
 auth/loginForm
+
+Context: đây là folder quản lý trạng thái toàn bộ dự án
+trong đó AuthContext quản lý trạng thái dự án, cứ cái j liên quan đến xác thực người dùng
+->các component/component con khác không cần quản lý trạng thái nữa mà chỉ import từ AuthContext thôi
+
+ở folder Context thì lại dùng create Context còn chỗ kahsc thì use nó
+
+Reducers: lưu trữ trạng thái xác thực người dùng
