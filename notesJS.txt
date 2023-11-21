@@ -64,12 +64,82 @@ https://viblo.asia/p/su-dung-usereducer-hook-trong-react-L4x5x19wKBM
 ->link về usereducer. nhìn chung thì đây là nâng cấp của useState
 
 React hook: 
-useContext: kho lưu trạng thái -> tất cả các component đều có thể truy cập để thay đổi state của dâta
+useState thì ez rồi 
+
+1.useContext: kho lưu trạng thái -> tất cả các component đều có thể truy cập để thay đổi state của data
 ->ko cần khai báo state ở các component riêng lẻ nx, nếu quá nhiều state thì vỡ mồm
 link học : https://www.youtube.com/watch?v=lsVT0s27Ibs&list=PLKzNGvIJtUDbPAASXcNzwWsVbIxmmDgGn&index=3&ab_channel=HenryWebDev
 
-Một component React sử dụng các props và/hoặc state để tính toán kết quả đầu ra. Nếu component thực hiện các tính toán không nhắm mục đích là giá trị đầu ra, thì các tính toán này được đặt tên là side effect.
-
+Một component React sử dụng các props và/hoặc state để tính toán kết quả đầu ra. Nếu 
+component thực hiện các tính toán không nhắm mục đích là giá trị đầu ra, thì các tính toán 
+này được đặt tên là side effect.
 Ví dụ về các side effect là lấy data, thao tác DOM trực tiếp, sử dụng các hàm hẹn giờ như setTimeout (), v.v.
 
-useContext
+useContext : ở trong kho trạng thái Context thì dùng createContext.
+->những chỗ nào , component nào muốn truy cập để lấy hoặc thay đổi các trạng thái trong contexxt 
+thì dùng useContext
+
+2.useEffect: hàm đc chạy ít nhât một lần (lần đầu khi component render). lần 1 khi component render, 
+lần tiếp là các điều kiện
+ -> hàm này có dạng useEffect(funcX, [Y])
+ -> Khi Y có sự thay đổi thì X chạy
+ áp dụng: khi có sự thay đổi trong chương trình, ví dụ đơn giản là log in log out.
+ hoặc khi có sự thay đổi dữ liệu thì lưu vào localstorage
+
+ 3. useReducer (có MQH thân thiết với useContext)
+ đây là kho chứa hành động tác động lên component . ví dụ xóa, add,...
+
+ mỗi một reducer là một hàm có 2 tham số : Reducer vừa tạo - là 1 cái kho dùng để lưu tất cả hành động.Tham số 
+ thứ 2 là giá trị khởi điểm của state mà kho có các hành động ảnh hưởng vào
+const [todos, dispatch] = useReducer(todoReducer, [])
+-> ở ví dụ trên: todoReducer là kho hành động , [] là state
+trong đó todoReducer thì được vết thế này:
+import { ADD_TODO, DELETE_TODO, GET_TODOS, SAVE_TODOS } from './types'
+
+export const todoReducer = (state, action) => {
+  const { type, payload } = action
+
+  switch (type) {
+    case GET_TODOS:
+      console.log('getting todos')
+      const todos = localStorage.getItem('todos')
+      if (todos) state = JSON.parse(todos)
+      return state
+
+    case SAVE_TODOS:
+      console.log('saving todos')
+      localStorage.setItem('todos', JSON.stringify(payload.todos))
+      return state
+
+    case ADD_TODO:
+      return [...state, payload.todo]
+
+    case DELETE_TODO:
+      return state.filter(todo => todo.id !== payload.id)
+
+    default:
+      return state
+  }
+}
+
+ cái Reducer vừa tạo gồm :state(các trạng thái) và action(tượng trưng cho hành động ảnh hưởng đến state đó)
+ const { type, payload } = action 
+ payload: tham số truyền các thông tin để hành động
+ type: loại hành động 
+ ->khi có useReducer rồi thì ko cần useState trong contexts nữa
+
+đối với :  const [todos, dispatch] = useReducer(todoReducer, [])
+trả về : todos là state của useReducer
+         dispatch : tượng trưng cho hành động
+         todoReducer : hàm reducer vừa tạo, nơi khai báo/chứa các hành động(tahy đổi trạng thái)
+         []: giá trị ban đầu của state
+thế nên cần xác định data thay đổi, trường hợp này là todos
+
+
+dispatch chính là action -> nó cần có các thuộc tính (trong ví dụ của Henry thì disphari có todo và id)
+
+const todoContextData = {
+    todos,
+    dispatch
+    //dispatch chính là tượng trưng cho tất cả hành động
+}
