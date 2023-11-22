@@ -133,7 +133,7 @@ trả về : todos là state của useReducer
          dispatch : tượng trưng cho hành động
          todoReducer : hàm reducer vừa tạo, nơi khai báo/chứa các hành động(tahy đổi trạng thái)
          []: giá trị ban đầu của state
-thế nên cần xác định data thay đổi, trường hợp này là todos
+thế nên cần xác định data thay đổi, trường hợp này là todos (thế nên todos lúc này chính là state)
 
 
 dispatch chính là action -> nó cần có các thuộc tính (trong ví dụ của Henry thì disphari có todo và id)
