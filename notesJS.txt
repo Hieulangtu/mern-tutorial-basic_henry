@@ -131,7 +131,7 @@ export const todoReducer = (state, action) => {
 đối với :  const [todos, dispatch] = useReducer(todoReducer, [])
 trả về : todos là state của useReducer
          dispatch : tượng trưng cho hành động
-         todoReducer : hàm reducer vừa tạo, nơi khai báo/chứa các hành động(tahy đổi trạng thái)
+         todoReducer : hàm reducer vừa tạo, nơi khai báo/chứa các hành động(thay đổi trạng thái)
          []: giá trị ban đầu của state
 thế nên cần xác định data thay đổi, trường hợp này là todos (thế nên todos lúc này chính là state)
 
