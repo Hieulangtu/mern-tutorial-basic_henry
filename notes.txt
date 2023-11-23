@@ -71,3 +71,9 @@ trong đó AuthContext quản lý trạng thái dự án, cứ cái j liên quan
 ở folder Context thì lại dùng create Context còn chỗ kahsc thì use nó
 
 Reducers: lưu trữ trạng thái xác thực người dùng
+
+ở AuthContext thì import axios vì phải nói chuyện với backend
+Axios là thư viện để thực hiện yêu cầu HTTP trong React
+->Dữ liệu được phản hồi và truy cập thông qua Response.data
+Khi thực hiện yêu cầu HTTP bằng Axios, đối tượng Response có một số thuộc tính như :"data",
+"status","headers"

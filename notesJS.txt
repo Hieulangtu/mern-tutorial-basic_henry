@@ -143,3 +143,15 @@ const todoContextData = {
     dispatch
     //dispatch chính là tượng trưng cho tất cả hành động
 }
+
+https://viblo.asia/p/usereducer-la-gi-tai-sao-phai-su-dung-usereducer-Az45bD4QZxY 
+->đọc cái link ở trên hay và quan trọng
+
+***
+Trong JavaScript, bạn có thể gọi tên hàm trước sau đó viết nội dung hàm (hoặc viết nội 
+dung hàm trước sau đó gọi tên hàm). Điều này là do cơ chế "function hoisting" trong 
+JavaScript. "Function hoisting" là khả năng của JavaScript để di chuyển khai báo hàm và 
+biến lên trên đỉnh của phạm vi của chúng trước khi thực thi mã.
+->>>Lưu ý rằng "function hoisting" chỉ áp dụng cho khai báo hàm bằng cách sử dụng từ khóa 
+function, không phải cho các biểu thức hàm (arrow functions) hoặc các biến. 
+Biểu thức hàm và biến không được "hoisted" và sẽ không thể gọi trước khi chúng được khai báo.

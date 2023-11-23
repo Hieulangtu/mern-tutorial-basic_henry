@@ -2,6 +2,7 @@ export const apiUrl =
 	process.env.NODE_ENV !== 'production'
 		? 'http://localhost:5000/api'
 		: 'https://sleepy-inlet-56101.herokuapp.com/api'
+//nếu deploy lên heroku thì biến môi trường sẽ thành production
 
 export const LOCAL_STORAGE_TOKEN_NAME = 'learnit-mern'
 

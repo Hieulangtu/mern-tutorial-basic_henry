@@ -4,8 +4,12 @@ import { apiUrl, LOCAL_STORAGE_TOKEN_NAME } from './constants'
 import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken'
 
+
+//export nhà kho
 export const AuthContext = createContext()
 
+
+//biến children bên trong do component này nó đi bọc chương trình
 const AuthContextProvider = ({ children }) => {
 	const [authState, dispatch] = useReducer(authReducer, {
 		authLoading: true,
@@ -40,10 +44,13 @@ const AuthContextProvider = ({ children }) => {
 	useEffect(() => loadUser(), [])
 
 	// Login
+	//async vì nói chuyện vs database -> dùng try..catch
 	const loginUser = async userForm => {
 		try {
 			const response = await axios.post(`${apiUrl}/auth/login`, userForm)
+			//cái .post(tên đường dẫn) này là trùng với khai báo bên backend/server
 			if (response.data.success)
+			    //đưa token vào localStorage
 				localStorage.setItem(
 					LOCAL_STORAGE_TOKEN_NAME,
 					response.data.accessToken
@@ -52,8 +59,14 @@ const AuthContextProvider = ({ children }) => {
 			await loadUser()
 
 			return response.data
-		} catch (error) {
-			if (error.response.data) return error.response.data
+	// Trong Axios, khi một yêu cầu HTTP không thành công (ví dụ: lỗi 400, 404, 500), 
+	// thì error sẽ là một đối tượng chứa thông tin về lỗi. Đối tượng này thường có một 
+	// thuộc tính là response, và response cũng là một đối tượng chứa thông tin về phản hồi 
+	// từ máy chủ. nó liên quan đến STATUS từ server
+		} catch (error) {//error là 1 object
+			if (error.response.data) return error.response.data 
+			//lỗi có chủ đích, lỗi mà error vẫn nhận response.data, có message trong đó
+			//ví dụ như nhập sai mật khẩu các thứ
 			else return { success: false, message: error.message }
 		}
 	}
@@ -87,6 +100,7 @@ const AuthContextProvider = ({ children }) => {
 	}
 
 	// Context data
+	//data trong nhà kho :))) data chúng ta cần
 	const authContextData = { loginUser, registerUser, logoutUser, authState }
 
 	// Return provider
@@ -97,4 +111,12 @@ const AuthContextProvider = ({ children }) => {
 	)
 }
 
+//export component . Sau này nó sẽ bọ các component khác ở trong app.js
+//các components được nó bọc sẽ có quyền dùng nhà kho này :))
 export default AuthContextProvider
+
+
+// AuthContextProvider là một React component được sử dụng để bọc các thành phần của ứng dụng 
+// với một context provider để chia sẻ thông tin xác thực.
+// AuthContext.Provider là provider thực tế, cung cấp giá trị context và dispatch (nếu sử 
+// dụng useReducer) cho các thành phần con của nó.
