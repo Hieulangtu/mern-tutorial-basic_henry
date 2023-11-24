@@ -3,7 +3,7 @@ import RegisterForm from '../components/auth/RegisterForm'
 import { AuthContext } from '../contexts/AuthContext'
 import { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
-import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner' //tránh cầm đèn chạy trước ô tô
 
 const Auth = ({ authRoute }) => {
 	const {
@@ -12,7 +12,7 @@ const Auth = ({ authRoute }) => {
 
 	let body
 
-	if (authLoading)
+	if (authLoading) //đoạn này để tránh cầm đèn chạy trước ô tô / câu giờ khi đang xác thực :))
 		body = (
 			<div className='d-flex justify-content-center mt-2'>
 				<Spinner animation='border' variant='info' />
@@ -41,3 +41,5 @@ const Auth = ({ authRoute }) => {
 }
 
 export default Auth
+
+//Auth này sẽ kiểm tra isAuthenticated chứ không phải loginForm hay registerForm

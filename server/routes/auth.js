@@ -15,9 +15,9 @@ const User = require('../models/User')
 // @access Public : phạm vi truy cập
 router.get('/', verifyToken, async (req, res) => {
 	//sự khác biệt về dữ liệu được gửi của get với post là dữ liệu của get truyền
-	//đi thông qua URL, hiển thị trogn url và sẽ có gới hạn ksich thước 
+	//đi thông qua URL, hiển thị trong url và sẽ có gới hạn kích thước 
 	try {
-		const user = await User.findById(req.userId).select('-password')
+		const user = await User.findById(req.userId).select('-password') //bỏ password
 		if (!user)
 			return res.status(400).json({ success: false, message: 'User not found' })
 		res.json({ success: true, user })
@@ -26,6 +26,8 @@ router.get('/', verifyToken, async (req, res) => {
 		res.status(500).json({ success: false, message: 'Internal server error' })
 	}
 })
+//hàm ở trên để xác thực người dùng có token chưa thì mới cho truy cập
+
 
 // @route POST api/auth/register
 // @desc Register user
@@ -75,6 +77,8 @@ router.post('/register', async (req, res) => {
 		res.status(500).json({ success: false, message: 'Internal server error' })
 	}
 })
+//phía frontend sẽ xử lý những dữ liệu response. dựa vào đó mà thực thi
+
 
 // @route POST api/auth/login
 // @desc Login user

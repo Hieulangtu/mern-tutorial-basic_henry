@@ -34,3 +34,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 }
 
 export default ProtectedRoute
+
+//component có cấu trục bọc component khác
+//Bảo vệ cá route

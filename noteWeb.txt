@@ -1,0 +1,28 @@
+   XÉT VÍ DỤ
+POST /api/data HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "password": "secretpassword"
+}
+
+Header:
+
+Dòng đầu tiên (POST /api/data HTTP/1.1) là phần request line, không phải header mà là phần mô tả loại và đường dẫn của yêu cầu.
+Các dòng tiếp theo (Host: example.com, Content-Type: application/json) là phần header của yêu cầu. Đây là nơi chứa các thông tin mô tả về yêu cầu, chẳng hạn như host mục tiêu (Host) và loại nội dung của body (Content-Type).
+Body:
+
+Phần cuối cùng, bắt đầu từ { và kết thúc bằng }, là phần body của yêu cầu. Trong trường hợp này, nó chứa dữ liệu JSON với thông tin về username và password.
+Vậy nên, để tóm tắt:
+
+Request Line: POST /api/data HTTP/1.1
+Header:
+Host: example.com
+Content-Type: application/json
+Body:
+{
+  "username": "johndoe",
+  "password": "secretpassword"
+}

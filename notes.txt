@@ -82,3 +82,6 @@ Khi thực hiện yêu cầu HTTP bằng Axios, đối tượng Response có m�
 folder Views : là các "mặt tiền"
 
 ****gõ rafce -> tạo ra các cấu trúc component
+
+cách viết div vs className=" d-flex justify-content-center mt-2"
+d-flex.justify-content-center.mt-2
