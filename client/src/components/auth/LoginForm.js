@@ -24,9 +24,10 @@ const LoginForm = () => {
 
 	const onChangeLoginForm = event =>
 		setLoginForm({ ...loginForm, [event.target.name]: event.target.value })
+                                     //nhớ là trong ngoặc vuông vì nó là chuỗi ký tự
 
-	const login = async event => {
-		event.preventDefault()
+	const login = async event => { //vì ở trong kho AuthContext thì đây là hàm async
+		event.preventDefault() //tránh submit form theo HTML gốc, tránh các hành vi mặc định(gửi và tải lại) xảy ra
 
 		try {
 			const loginData = await loginUser(loginForm)
@@ -41,7 +42,8 @@ const LoginForm = () => {
 
 	return (
 		<>
-			<Form className='my-4' onSubmit={login}>
+			<Form className='my-4' onSubmit={login}> 
+			{/* khi form đc submit thì nó gọi hàm login */}
 				<AlertMessage info={alert} />
 
 				<Form.Group>

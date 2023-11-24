@@ -45,7 +45,7 @@ const RegisterForm = () => {
 				setTimeout(() => setAlert(null), 5000)
 			}
 		} catch (error) {
-			console.log(error)
+			console.log(error) //csi error chỗ này ko liên quan đến error chỗ kho context
 		}
 	}
 

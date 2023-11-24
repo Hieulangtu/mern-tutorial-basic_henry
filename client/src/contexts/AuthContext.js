@@ -45,9 +45,10 @@ const AuthContextProvider = ({ children }) => {
 
 	// Login
 	//async vì nói chuyện vs database -> dùng try..catch
+	//ngoài ra vì axios trả về promise nên dùng await async
 	const loginUser = async userForm => {
 		try {
-			const response = await axios.post(`${apiUrl}/auth/login`, userForm)
+			const response = await axios.post(`${apiUrl}/auth/login`, userForm)//nếu ko có userForm ở đây thì coi như ko gửi gì :))
 			//cái .post(tên đường dẫn) này là trùng với khai báo bên backend/server
 			if (response.data.success)
 			    //đưa token vào localStorage

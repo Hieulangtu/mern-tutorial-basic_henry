@@ -30,6 +30,7 @@ function App() {
 						/>
 						<ProtectedRoute exact path='/dashboard' component={Dashboard} />
 						<ProtectedRoute exact path='/about' component={About} />
+						{/* ProtectedRoute ko phải là public route thông thường. phải đăng ký/nhập ms vào đc */}
 					</Switch>
 				</Router>
 			</PostContextProvider>

@@ -6,6 +6,7 @@ từ đây bắt đầu tạo backend, cài các thứ
  npm i express jsonwebtoken mongoose dotenv argon2 cors
 
 cors : dùng để frontend nói chuyện vs backend
+-> ví dụ trong frontend chay ở port 3000, backend là 5000. nên ko có nó ko nói chuyện đc
 
 npm i --save-dev nodemon
 nodemon: để phát triển trong môi truowgnf lập trình, tiện, save code là nó cập nhật luôn 
@@ -77,3 +78,7 @@ Axios là thư viện để thực hiện yêu cầu HTTP trong React
 ->Dữ liệu được phản hồi và truy cập thông qua Response.data
 Khi thực hiện yêu cầu HTTP bằng Axios, đối tượng Response có một số thuộc tính như :"data",
 "status","headers"
+
+folder Views : là các "mặt tiền"
+
+****gõ rafce -> tạo ra các cấu trúc component
