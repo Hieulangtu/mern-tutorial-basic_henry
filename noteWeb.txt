@@ -26,3 +26,5 @@ Body:
   "username": "johndoe",
   "password": "secretpassword"
 }
+
+Các thuật ngữ:

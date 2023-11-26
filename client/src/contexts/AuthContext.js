@@ -106,6 +106,7 @@ const AuthContextProvider = ({ children }) => {
 	const authContextData = { loginUser, registerUser, logoutUser, authState }
 
 	// Return provider
+	// truyền data cho nhà kho AuthContext (vì ta đã chọn AuthContext làm nhà cung cấp )
 	return (
 		<AuthContext.Provider value={authContextData}>
 			{children}
