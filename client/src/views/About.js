@@ -21,3 +21,4 @@ const About = () => {
 }
 
 export default About
+//đoạn style={{ marginRight: 0 } là chữa nhanh chữa bẩn

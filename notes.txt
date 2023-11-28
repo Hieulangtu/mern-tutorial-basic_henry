@@ -85,3 +85,6 @@ folder Views : là các "mặt tiền"
 
 cách viết div vs className=" d-flex justify-content-center mt-2"
 d-flex.justify-content-center.mt-2
+
+
+folder layout: để bổ trợ
