@@ -88,3 +88,12 @@ d-flex.justify-content-center.mt-2
 
 
 folder layout: để bổ trợ
+trong package.json phía server:
+"scripts": {
+		"start": "node index",
+		// heroku sẽ chạy index 
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server": "nodemon index"
+	},
+
+$ git subtree push --prefix server heroku master : vì hàm index ở trong folder server. ko thì b thường push

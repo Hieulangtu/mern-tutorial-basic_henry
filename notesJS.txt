@@ -46,6 +46,9 @@ cần hàm nặc danh. còn nếu chỉ có event/ ko có gì thì gọi trực 
 ->Bằng cách này, giá trị của shape trong props của Avatar sẽ là 5. 
 Cách này sẽ ghi đè giá trị của shape nếu nó đã tồn tại trong props của Profile
 
+Ngoài ra thì khi viết {props} -> nó là một object.{a,b,c}=props
+
+
 let cho phép chúng ta cập nhật giá trị của biến chứ không cho phép chúng ta tái khái báo lại biến đó.
  let greeting = "say Hi";
     let greeting = "say Hello instead"; // error: Identifier 'greeting' has already been declared
@@ -155,3 +158,10 @@ biến lên trên đỉnh của phạm vi của chúng trước khi thực thi m
 ->>>Lưu ý rằng "function hoisting" chỉ áp dụng cho khai báo hàm bằng cách sử dụng từ khóa 
 function, không phải cho các biểu thức hàm (arrow functions) hoặc các biến. 
 Biểu thức hàm và biến không được "hoisted" và sẽ không thể gọi trước khi chúng được khai báo.
+
+trong Component Reactjs : {} để viết logic
+                () để trả về giá trị
+
+placeholder là atribute để hiển thị chữ mờ trong cái ô input 
+
+muốn import là phải export

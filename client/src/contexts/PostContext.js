@@ -11,7 +11,7 @@ import {
 } from './constants'
 import axios from 'axios'
 
-export const PostContext = createContext()
+export const PostContext = createContext() 
 
 const PostContextProvider = ({ children }) => {
 	// State
@@ -33,7 +33,7 @@ const PostContextProvider = ({ children }) => {
 	const getPosts = async () => {
 		try {
 			const response = await axios.get(`${apiUrl}/posts`)
-			if (response.data.success) {
+			if (response.data.success) { //server trả về thành công
 				dispatch({ type: POSTS_LOADED_SUCCESS, payload: response.data.posts })
 			}
 		} catch (error) {
@@ -50,7 +50,7 @@ const PostContextProvider = ({ children }) => {
 				return response.data
 			}
 		} catch (error) {
-			return error.response.data
+			return error.response.data //lỗi server trả lại có chủ đích, vd : 400
 				? error.response.data
 				: { success: false, message: 'Server error' }
 		}

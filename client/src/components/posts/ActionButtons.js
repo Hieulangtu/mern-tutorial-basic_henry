@@ -1,3 +1,5 @@
+//Component trả về các buttons để :mở , chỉnh sửa, xóa khóa học
+
 import Button from 'react-bootstrap/Button'
 import playIcon from '../../assets/play-btn.svg'
 import editIcon from '../../assets/pencil.svg'
@@ -31,3 +33,5 @@ const ActionButtons = ({ url, _id }) => {
 }
 
 export default ActionButtons
+
+//target='_blank' để mở ra trong của sổ mới

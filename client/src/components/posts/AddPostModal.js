@@ -1,3 +1,5 @@
+//Component quản lý việc thêm các khóa học (vs Modal là cửa sổ pop-up)
+
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -33,6 +35,7 @@ const AddPostModal = () => {
 	const onSubmit = async event => {
 		event.preventDefault()
 		const { success, message } = await addPost(newPost)
+		//khi addPost xong, backend trả về data và nó sẽ render cập nhật lại
 		resetAddPostData()
 		setShowToast({ show: true, message, type: success ? 'success' : 'danger' })
 	}
@@ -40,6 +43,7 @@ const AddPostModal = () => {
 	const resetAddPostData = () => {
 		setNewPost({ title: '', description: '', url: '', status: 'TO LEARN' })
 		setShowAddPostModal(false)
+		//reset để khi mở lại thì mọi thứ trong trắng :))
 	}
 
 	return (
@@ -62,10 +66,11 @@ const AddPostModal = () => {
 						<Form.Text id='title-help' muted>
 							Required
 						</Form.Text>
+						{/* hiển thị văn bản bổ sung */}
 					</Form.Group>
 					<Form.Group>
 						<Form.Control
-							as='textarea'
+							as='textarea' //ô văn bản lớn hơn với số rows ở bên dưới (3)
 							rows={3}
 							placeholder='Description'
 							name='description'
@@ -97,3 +102,7 @@ const AddPostModal = () => {
 }
 
 export default AddPostModal
+
+
+//modal trong bootstrap để tạo csc cửa sổ pop-up
+//Thuộc tính closeButton được sử dụng để thêm một nút đóng modal ở góc trên bên phải của tiêu đề.

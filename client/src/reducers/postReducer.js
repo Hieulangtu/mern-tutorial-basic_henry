@@ -38,6 +38,7 @@ export const postReducer = (state, action) => {
 
 		case FIND_POST:
 			return { ...state, post: payload }
+			//payload là post : post vs đầy đủ thông tin vừa tìm thấy
 
 		case UPDATE_POST:
 			const newPosts = state.posts.map(post =>

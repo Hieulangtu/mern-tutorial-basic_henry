@@ -17,6 +17,7 @@ const UpdatePostModal = () => {
 	// State
 	const [updatedPost, setUpdatedPost] = useState(post)
 
+    //phải có cái này để giá trị post (mới) ở trong code cx thay đổi, nếu không giá trị đầu ở frontend vẫn giữ nguyên
 	useEffect(() => setUpdatedPost(post), [post])
 
 	const { title, description, url, status } = updatedPost

@@ -21,7 +21,7 @@ const Dashboard = () => {
 			user: { username }
 		}
 	} = useContext(AuthContext)
-
+//đang móc các Context ra
 	const {
 		postState: { post, posts, postsLoading },
 		getPosts,
@@ -78,16 +78,17 @@ const Dashboard = () => {
 					overlay={<Tooltip>Add a new thing to learn</Tooltip>}
 				>
 					<Button
-						className='btn-floating'
+						className='btn-floating' //CSS
 						onClick={setShowAddPostModal.bind(this, true)}
-					>
+					> 
 						<img src={addIcon} alt='add-post' width='60' height='60' />
 					</Button>
 				</OverlayTrigger>
 			</>
 		)
 	}
-
+//Overlay là component để tạo các thành phần gợi ý trong bootstrap
+//Tooltip : phần hiển thị popup
 	return (
 		<>
 			{body}
